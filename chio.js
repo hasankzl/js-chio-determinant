@@ -46,7 +46,7 @@ var SolveMatrix = function (solveMatrix) {
 // recursive function
 function calculateDeterminant(matrix2) {
   if (matrix2.length == 1) {
-    resultElement.innerText = result * matrix2[0] * -1;
+    resultElement.innerText = result * matrix2[0];
     result = 1;
     return;
   } else {
