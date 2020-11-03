@@ -2,8 +2,10 @@
 // github/coderSau/chio
 
 const resultElement = document.getElementById("result");
-
+const submitButton = document.getElementById("submit");
 // matrix columns
+// every nested array represent a column
+// defined static but can be changed
 let matrix = [
   [8, 1, 2, 5],
   [8, 26, 5, 7],
@@ -13,6 +15,7 @@ let matrix = [
 //started by 1 because of multiply
 let result = 1;
 
+// function create a matrix
 var CreateMatrix = function (rows, columns) {
   this.rows = rows;
   this.columns = columns;
@@ -23,10 +26,12 @@ var CreateMatrix = function (rows, columns) {
   return this.myarray;
 };
 
+// for calculate 2x2 detarminant
 var getDetarminant = function (array) {
   return array[0] * array[3] - array[1] * array[2];
 };
 
+// solves the matrix which included 2x2 matrix
 var SolveMatrix = function (solveMatrix) {
   const solveMatrixLength = solveMatrix.length;
   const newMatrix = CreateMatrix(solveMatrixLength, solveMatrixLength);
@@ -38,9 +43,11 @@ var SolveMatrix = function (solveMatrix) {
   return newMatrix;
 };
 
+// recursive function
 function calculateDeterminant(matrix2) {
   if (matrix2.length == 1) {
     resultElement.innerText = result * matrix2[0] * -1;
+    result = 1;
     return;
   } else {
     let calculateMatrix = matrix2;
@@ -80,4 +87,8 @@ function calculateDeterminant(matrix2) {
     calculateDeterminant(underDimentionalMatrix);
   }
 }
-calculateDeterminant(matrix);
+
+submitButton.addEventListener("click", function () {
+  const matrixValue = document.getElementById("matrix").value;
+  calculateDeterminant(JSON.parse(matrixValue));
+});
