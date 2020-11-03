@@ -5,7 +5,7 @@ const resultElement = document.getElementById("result");
 
 // matrix columns
 let matrix = [
-  [8, 1, 2, 1],
+  [8, 1, 2, 5],
   [8, 26, 5, 7],
   [25, 4, 7, 5],
   [5, 5, 5, 9],
